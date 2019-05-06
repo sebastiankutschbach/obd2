@@ -1,5 +1,7 @@
 # Java OBD-2 library creating requests and interpreting responses
 
+https://travis-ci.com/sebastiankutschbach/obd2.svg?branch=master
+
 Main purpose of this library is to handle the OBD-2 standard communication.
 
 ## Getting Started
