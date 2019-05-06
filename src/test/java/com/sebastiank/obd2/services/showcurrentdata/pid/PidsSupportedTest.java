@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 import com.sebastiank.obd2.TestConstants;
 import com.sebastiank.obd2.utils.Unit;
 import java.util.Map;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class PidsSupportedTest {
@@ -94,6 +95,7 @@ public class PidsSupportedTest {
   }
 
   @Test
+  @Ignore
   public void getPhysicalValueHigh() {
     final Map<Integer, String> supportedPids =
         sutHigh.getPhysicalValue(new byte[] {(byte) 0xBE, (byte) 0x1F, (byte) 0xA8, (byte) 0x13});
