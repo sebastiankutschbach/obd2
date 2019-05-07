@@ -17,26 +17,27 @@ public class TimingAdvance implements ISingleValuePid {
 
   @Override
   public int getDataBytesReturned() {
-    return 0;
+    return 1;
   }
 
   @Override
   public double getMinValue() {
-    return 0;
+    return -64.0;
   }
 
   @Override
   public double getMaxValue() {
-    return 0;
+    return 63.5;
   }
 
   @Override
   public Unit getUnit() {
-    return null;
+    return Unit.DEGREE_BEFORE_TDC;
   }
 
   @Override
-  public Object getPhysicalValue(byte[] rawBytes) {
-    return null;
+  public Double getPhysicalValue(byte[] rawBytes) {
+    double rawValue = rawBytes[0] & 0xFF;
+    return (rawValue / 2.0) - 64.0;
   }
 }
