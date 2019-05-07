@@ -17,26 +17,26 @@ public class MafAirFlowRate implements ISingleValuePid {
 
   @Override
   public int getDataBytesReturned() {
-    return 0;
+    return 2;
   }
 
   @Override
   public double getMinValue() {
-    return 0;
+    return 0.0;
   }
 
   @Override
   public double getMaxValue() {
-    return 0;
+    return 655.35;
   }
 
   @Override
   public Unit getUnit() {
-    return null;
+    return Unit.GRAMS_PER_SECOND;
   }
 
   @Override
-  public Object getPhysicalValue(byte[] rawBytes) {
-    return null;
+  public Double getPhysicalValue(byte[] rawBytes) {
+    return (((rawBytes[0] & 0xFF) << 8) +(rawBytes[1] & 0xFF)) / 100.0;
   }
 }
