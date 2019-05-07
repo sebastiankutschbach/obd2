@@ -17,26 +17,26 @@ public class IntakeAirTemperature implements ISingleValuePid {
 
   @Override
   public int getDataBytesReturned() {
-    return 0;
+    return 1;
   }
 
   @Override
   public double getMinValue() {
-    return 0;
+    return -40.0;
   }
 
   @Override
   public double getMaxValue() {
-    return 0;
+    return 215.0;
   }
 
   @Override
   public Unit getUnit() {
-    return null;
+    return Unit.DEGREE_CELSIUS;
   }
 
   @Override
-  public Object getPhysicalValue(byte[] rawBytes) {
-    return null;
+  public Double getPhysicalValue(byte[] rawBytes) {
+    return (rawBytes[0] & 0xFF) - 40.0;
   }
 }
