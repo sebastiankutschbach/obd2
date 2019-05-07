@@ -17,26 +17,26 @@ public class IntakeManifoldAbsolutePressure implements ISingleValuePid {
 
   @Override
   public int getDataBytesReturned() {
-    return 0;
+    return 1;
   }
 
   @Override
   public double getMinValue() {
-    return 0;
+    return 0.0;
   }
 
   @Override
   public double getMaxValue() {
-    return 0;
+    return 255.0;
   }
 
   @Override
   public Unit getUnit() {
-    return null;
+    return Unit.KILO_PASCAL;
   }
 
   @Override
-  public Object getPhysicalValue(byte[] rawBytes) {
-    return null;
+  public Double getPhysicalValue(byte[] rawBytes) {
+    return (double)(rawBytes[0] & 0xFF);
   }
 }

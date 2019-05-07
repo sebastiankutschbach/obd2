@@ -11,4 +11,14 @@ public final class BitHelper {
     return (b & (1 << bit)) != 0;
   }
 
+  public static int countSetBits(byte b) {
+    int setBitsCount = 0;
+    for (int bitIndex = 0; bitIndex < 8; bitIndex++) {
+      if(isBitSet(b, bitIndex)) {
+        setBitsCount++;
+      }
+    }
+    return setBitsCount;
+  }
+
 }
