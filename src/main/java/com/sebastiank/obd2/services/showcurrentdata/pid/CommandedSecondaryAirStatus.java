@@ -1,6 +1,8 @@
 package com.sebastiank.obd2.services.showcurrentdata.pid;
 
 import com.sebastiank.obd2.services.ISingleValuePid;
+import com.sebastiank.obd2.utils.BitHelper;
+import com.sebastiank.obd2.services.responses.ECommandedSecondaryAirStatus;
 import com.sebastiank.obd2.utils.Unit;
 
 public class CommandedSecondaryAirStatus implements ISingleValuePid {
@@ -17,26 +19,42 @@ public class CommandedSecondaryAirStatus implements ISingleValuePid {
 
   @Override
   public int getDataBytesReturned() {
-    return 0;
+    return 1;
   }
 
   @Override
   public double getMinValue() {
-    return 0;
+    return Double.NaN;
   }
 
   @Override
   public double getMaxValue() {
-    return 0;
+    return Double.NaN;
   }
 
   @Override
   public Unit getUnit() {
-    return null;
+    return Unit.NO_UNIT;
   }
 
   @Override
-  public Object getPhysicalValue(byte[] rawBytes) {
-    return null;
+  public ECommandedSecondaryAirStatus getPhysicalValue(byte[] rawBytes) {
+    ECommandedSecondaryAirStatus commandedSecondaryAirStatus = ECommandedSecondaryAirStatus.INVALID_RESPONSE;
+
+    if(BitHelper.isBitSet(rawBytes[0], 0)) {
+      commandedSecondaryAirStatus = ECommandedSecondaryAirStatus.UPSTREAM;
+    } else if(BitHelper.isBitSet(rawBytes[0], 1)) {
+      commandedSecondaryAirStatus = ECommandedSecondaryAirStatus.DOWNSTREAM;
+    } else if(BitHelper.isBitSet(rawBytes[0], 2)) {
+      commandedSecondaryAirStatus = ECommandedSecondaryAirStatus.OUTSIDE_OR_OFF;
+    } else if(BitHelper.isBitSet(rawBytes[0], 3)) {
+      commandedSecondaryAirStatus = ECommandedSecondaryAirStatus.PUMP_COMMANDED_ON_DIAGNOSTICS;
+    }
+
+    if(BitHelper.countSetBits(rawBytes[0]) != 1) {
+      commandedSecondaryAirStatus = ECommandedSecondaryAirStatus.INVALID_RESPONSE;
+    }
+
+    return commandedSecondaryAirStatus;
   }
 }

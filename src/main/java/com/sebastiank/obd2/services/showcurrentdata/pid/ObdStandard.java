@@ -1,6 +1,7 @@
 package com.sebastiank.obd2.services.showcurrentdata.pid;
 
 import com.sebastiank.obd2.services.ISingleValuePid;
+import com.sebastiank.obd2.utils.ObdStandardMapping;
 import com.sebastiank.obd2.utils.Unit;
 
 public class ObdStandard implements ISingleValuePid {
@@ -17,26 +18,26 @@ public class ObdStandard implements ISingleValuePid {
 
   @Override
   public int getDataBytesReturned() {
-    return 0;
+    return 1;
   }
 
   @Override
   public double getMinValue() {
-    return 0;
+    return Double.NaN;
   }
 
   @Override
   public double getMaxValue() {
-    return 0;
+    return Double.NaN;
   }
 
   @Override
   public Unit getUnit() {
-    return null;
+    return Unit.NO_UNIT;
   }
 
   @Override
-  public Object getPhysicalValue(byte[] rawBytes) {
-    return null;
+  public String getPhysicalValue(byte[] rawBytes) {
+    return ObdStandardMapping.MAPPING.get(rawBytes[0] & 0xFF);
   }
 }

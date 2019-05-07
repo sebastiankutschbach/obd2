@@ -6,7 +6,7 @@ import com.sebastiank.obd2.services.showcurrentdata.pid.FreezeDtcs;
 import com.sebastiank.obd2.services.showcurrentdata.pid.FuelSystemStatus;
 import com.sebastiank.obd2.services.showcurrentdata.pid.FuelTrim;
 import com.sebastiank.obd2.services.showcurrentdata.pid.MonitorStatusSinceDtcsCleared;
-import com.sebastiank.obd2.services.showcurrentdata.pid.AuxilliaryInputStatus;
+import com.sebastiank.obd2.services.showcurrentdata.pid.AuxiliaryInputStatus;
 import com.sebastiank.obd2.services.showcurrentdata.pid.CommandedSecondaryAirStatus;
 import com.sebastiank.obd2.services.showcurrentdata.pid.EngineRpm;
 import com.sebastiank.obd2.services.showcurrentdata.pid.FuelPressure;
@@ -15,8 +15,7 @@ import com.sebastiank.obd2.services.showcurrentdata.pid.IntakeManifoldAbsolutePr
 import com.sebastiank.obd2.services.showcurrentdata.pid.MafAirFlowRate;
 import com.sebastiank.obd2.services.showcurrentdata.pid.ObdStandard;
 import com.sebastiank.obd2.services.showcurrentdata.pid.OxygenSensor;
-import com.sebastiank.obd2.services.showcurrentdata.pid.OxygenSensorsPresent2Banks;
-import com.sebastiank.obd2.services.showcurrentdata.pid.OxygenSensorsPresent4Banks;
+import com.sebastiank.obd2.services.showcurrentdata.pid.OxygenSensorsPresent;
 import com.sebastiank.obd2.services.showcurrentdata.pid.PidsSupported;
 import com.sebastiank.obd2.services.showcurrentdata.pid.RuntimeSinceEngineStart;
 import com.sebastiank.obd2.services.showcurrentdata.pid.ThrottlePosition;
@@ -30,7 +29,7 @@ public class ShowCurrentDataPids {
   public static final List<IPid> PIDS =
       new ArrayList<IPid>() {
         {
-          add(new AuxilliaryInputStatus());
+          add(new AuxiliaryInputStatus());
           add(new CalculatedEngineLoad());
           add(new CommandedSecondaryAirStatus());
           add(new EngineCoolantTemperature());
@@ -51,8 +50,8 @@ public class ShowCurrentDataPids {
           add(new OxygenSensor(6));
           add(new OxygenSensor(7));
           add(new OxygenSensor(8));
-          add(new OxygenSensorsPresent2Banks());
-          add(new OxygenSensorsPresent4Banks());
+          add(new OxygenSensorsPresent(true));
+          add(new OxygenSensorsPresent(false));
           add(new PidsSupported(true));
           add(new PidsSupported(false));
           add(new RuntimeSinceEngineStart());

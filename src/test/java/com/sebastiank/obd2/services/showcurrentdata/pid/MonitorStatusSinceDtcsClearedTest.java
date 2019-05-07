@@ -5,10 +5,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 import com.sebastiank.obd2.TestConstants;
-import com.sebastiank.obd2.utils.AbstractMonitorStatus;
-import com.sebastiank.obd2.utils.CompressionEngineMonitorStatus;
+import com.sebastiank.obd2.services.responses.AbstractMonitorStatus;
+import com.sebastiank.obd2.services.responses.CompressionEngineMonitorStatus;
 import com.sebastiank.obd2.utils.IgnitionType;
-import com.sebastiank.obd2.utils.SparkEngineMonitorStatus;
+import com.sebastiank.obd2.services.responses.SparkEngineMonitorStatus;
 import com.sebastiank.obd2.utils.Unit;
 import org.junit.Test;
 

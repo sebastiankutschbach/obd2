@@ -1,11 +1,11 @@
 package com.sebastiank.obd2.services.showcurrentdata.pid;
 
 import com.sebastiank.obd2.services.ISingleValuePid;
-import com.sebastiank.obd2.utils.AbstractMonitorStatus;
+import com.sebastiank.obd2.services.responses.AbstractMonitorStatus;
 import com.sebastiank.obd2.utils.BitHelper;
-import com.sebastiank.obd2.utils.CompressionEngineMonitorStatus;
+import com.sebastiank.obd2.services.responses.CompressionEngineMonitorStatus;
 import com.sebastiank.obd2.utils.IgnitionType;
-import com.sebastiank.obd2.utils.SparkEngineMonitorStatus;
+import com.sebastiank.obd2.services.responses.SparkEngineMonitorStatus;
 import com.sebastiank.obd2.utils.Unit;
 
 public class MonitorStatusSinceDtcsCleared implements ISingleValuePid {

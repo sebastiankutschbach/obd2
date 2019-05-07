@@ -3,7 +3,7 @@ package com.sebastiank.obd2.services.showcurrentdata.pid;
 import static org.junit.Assert.*;
 
 import com.sebastiank.obd2.TestConstants;
-import com.sebastiank.obd2.utils.EFuelSystemStatus;
+import com.sebastiank.obd2.services.responses.EFuelSystemStatus;
 import com.sebastiank.obd2.utils.Unit;
 import org.junit.Test;
 

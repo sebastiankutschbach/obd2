@@ -1,9 +1,11 @@
 package com.sebastiank.obd2.services.showcurrentdata.pid;
 
 import com.sebastiank.obd2.services.ISingleValuePid;
+import com.sebastiank.obd2.services.responses.EAuxiliaryInputStatus;
+import com.sebastiank.obd2.utils.BitHelper;
 import com.sebastiank.obd2.utils.Unit;
 
-public class AuxilliaryInputStatus implements ISingleValuePid {
+public class AuxiliaryInputStatus implements ISingleValuePid {
 
   @Override
   public int getPid() {
@@ -17,26 +19,28 @@ public class AuxilliaryInputStatus implements ISingleValuePid {
 
   @Override
   public int getDataBytesReturned() {
-    return 0;
+    return 1;
   }
 
   @Override
   public double getMinValue() {
-    return 0;
+    return Double.NaN;
   }
 
   @Override
   public double getMaxValue() {
-    return 0;
+    return Double.NaN;
   }
 
   @Override
   public Unit getUnit() {
-    return null;
+    return Unit.NO_UNIT;
   }
 
   @Override
   public Object getPhysicalValue(byte[] rawBytes) {
-    return null;
+    return BitHelper.isBitSet(rawBytes[0], 0)
+        ? EAuxiliaryInputStatus.POWER_TAKE_OFF_ACTIVE
+        : EAuxiliaryInputStatus.POWER_TAKE_OFF_INACTIVE;
   }
 }

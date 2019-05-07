@@ -2,7 +2,7 @@ package com.sebastiank.obd2.services.showcurrentdata.pid;
 
 import com.sebastiank.obd2.services.ISingleValuePid;
 import com.sebastiank.obd2.utils.BitHelper;
-import com.sebastiank.obd2.utils.EFuelSystemStatus;
+import com.sebastiank.obd2.services.responses.EFuelSystemStatus;
 import com.sebastiank.obd2.utils.Unit;
 
 public class FuelSystemStatus implements ISingleValuePid {

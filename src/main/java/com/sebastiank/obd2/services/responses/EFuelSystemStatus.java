@@ -1,5 +1,9 @@
-package com.sebastiank.obd2.utils;
+package com.sebastiank.obd2.services.responses;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
 public enum EFuelSystemStatus {
   OPEN_LOOP_INSUFFICIENT_AIR_TEMP("Open loop due to insufficient engine temperature"),
 	CLOSED_LOOP_USING_OXYGEN_SENSOR_FEEDBACK("Closed loop, using oxygen sensor feedback to determine fuel mix"),
@@ -8,13 +12,6 @@ public enum EFuelSystemStatus {
   CLOSED_LOOP_ERROR_IN_FEEDBACK_SYSTEM("Closed loop, using at least one oxygen sensor but there is a fault in the feedback system"),
   INVALID_RESPONSE("More than one bit was set - invalid response");
 
+  @Getter
   private String description;
-
-  EFuelSystemStatus(String description) {
-    this.description = description;
-  }
-
-  public String getDescription() {
-    return this.description;
-  }
 }

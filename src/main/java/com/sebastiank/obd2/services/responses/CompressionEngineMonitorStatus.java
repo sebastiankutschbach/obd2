@@ -1,5 +1,7 @@
-package com.sebastiank.obd2.utils;
+package com.sebastiank.obd2.services.responses;
 
+import com.sebastiank.obd2.services.responses.AbstractMonitorStatus;
+import com.sebastiank.obd2.utils.IgnitionType;
 import lombok.Getter;
 import lombok.Setter;
 
